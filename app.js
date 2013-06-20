@@ -8,7 +8,7 @@ var express = require('express')
   , user = require('./routes/user')
   , http = require('http')
   , path = require('path')
-  , posts = require('./routes/index.js');
+  , post = require('./routes/index');
 
 var app = express();
 
@@ -31,12 +31,12 @@ if ('development' == app.get('env')) {
 app.get('/', routes.index);
 app.get('/users', user.list);
 
-app.get('/posts', posts.findAll);
-app.get('/posts/:id', posts.findById);
+app.get('/posts', post.findAll);
+app.get('/posts/:id', post.findById);
 
-app.poost('/posts', post.addPost);
+app.post('/posts', post.addPost);
 app.put('/posts:id', post.updatePost);
-app.delete('/posts/id', post.deleteWine);
+//app.delete('/posts/id', post.deleteWine);
 
 //app.get('/posts', function(req, res){
 //	res.send([{data:'data1'}, {data:'data2'}]);
